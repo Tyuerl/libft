@@ -24,21 +24,22 @@ FLAGS_LIB	= rc
 
 HEAD		= libft.h
 
+.PHONY: all clean fclean re
 
+all: 		${NAME}.a
 
 .c.o:		${HEAD}
 			
 			${GCC} ${FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}		
 
-${NAME}:	${DEL} ${HEAD}
+${NAME}.a:	${DEL} ${HEAD}
 			${LIB}  ${FLAGS_LIB} ${NAME}.a ${DEL}
-
-all: 		${NAME}
 
 clean:	
 			${RM} ${DEL}
 
 fclean:		clean
-			${RM} ${NAME}
+			${RM} ${NAME}.a
 
 re:			fclean all	
+
